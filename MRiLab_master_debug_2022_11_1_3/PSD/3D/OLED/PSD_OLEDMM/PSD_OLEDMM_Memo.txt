@@ -1,0 +1,8 @@
+======oled multislice t1 t2 Sequence=========
+Usage : oled multislice
+Version : 1.0
+Author : Angus
+Time : 04/24/2018
+Affiliation : XMU
+wjtcw@hotmail.com
+======================================

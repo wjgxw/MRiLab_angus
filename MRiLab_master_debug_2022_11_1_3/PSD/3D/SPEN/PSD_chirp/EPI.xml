@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EPI BW="32000" EPI_ESP="1e-3" EPI_ETL="64" EPI_EchoShifting="$1'on','off'" EPI_ShotNum="1" Tacq="64e-3" Texc="4e-3" chirp=""/>

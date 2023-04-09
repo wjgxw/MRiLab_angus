@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabSeq Name="PSD_OLED_T2STAR_philips" Notes="3D hybrid EPI gradient echo sequence">
+   <CVs CV1="1" CV10="(63.0/4)*VCtl.EPI_ESP*2" CV11="(63.0/4)*VCtl.EPI_ESP*2" CV12="3.54e-3" CV13="31.22e-3" CV14="12.25e-3" CV2="80e-3" CV3="2e-3" CV4="200e-3" CV5="1.2e-3" CV6="0" CV7="0" CV8="0" CV9="0" LLOLED_Slice="2"/>
+   <Specials DEEP="^1" EPI="^1"/>
+   <Pulses Freq="1" Notes="regular TR section" Switch="$1'on','off'" TREnd="Inf" TRStart="1" tE="VCtl.TR" tS="0">
+      <rf>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+1e-3" tStart="CV3-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+1e-3+CV10" tStart="CV3-1e-3+CV10"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+1e-3+CV10+CV11" tStart="CV3-1e-3+CV10+CV11"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+1e-3+CV10+CV11*3" tStart="CV3-1e-3+CV10+CV11*3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="180" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+CV10+CV11*3+CV14+1e-3" tStart="CV3+CV10+CV11*3+CV14-1e-3"/>
+      </rf>
+      <GzSS>
+         <GzCartesian DupSpacing="0" Duplicates="1" Gz1Sign="0" Gz2Sign="1" Notes="cartesian phase" Switch="$1'on','off'" t1End="CV2" t1Start="CV1" t2End="VCtl.TE+CV2" t2Start="VCtl.TE+CV1" tRamp="100e-6"/>
+      </GzSS>
+      <GyPE>
+         <GyAreaTrapezoid2_ran Area="-31/128*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="1" tStart="CV3+CV10/2"/>
+         <GyAreaTrapezoid2_ran Area="-31/128*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="2" tStart="CV3+CV10+CV11/2"/>
+         <GyAreaTrapezoid2_ran Area="-31/128*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="3" tStart="CV3+CV10+CV11*1.5"/>
+         <GyAreaTrapezoid2_ran Area="-17/128*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="4" tStart="CV3+CV10+CV11*2+CV14/2"/>
+         <GyEPI Gy1Sign="0" Gy2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="CV3+CV10+CV11*2+CV14+CV13"/>
+         <GyAreaTrapezoid2 Area="-1/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tStart="CV3+CV10+CV11*2+CV14+CV13+0.79e-3+(VCtl.EPI_ETL-1)*VCtl.EPI_ESP"/>
+         <GyEPI_nodephase Gy1Sign="1" Gy2Sign="1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="CV3+CV10+CV11*2+CV14+CV13+CV5+(VCtl.EPI_ETL)*VCtl.EPI_ESP"/>
+         <GyAreaTrapezoid Area="-2.3*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="crush1" Switch="$1'on','off'" tEnd="CV3+CV10+CV11*2+CV14-2.9e-3" tStart="CV3+CV10+CV11*2+CV14-3.5e-3"/>
+         <GyAreaTrapezoid Area="-2.3*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="crush1" Switch="$1'on','off'" tEnd="CV3+CV10+CV11*2+CV14+2.5e-3" tStart="CV3+CV10+CV11*2+CV14+1.9e-3"/>
+      </GyPE>
+      <GxR>
+         <GxAreaTrapezoid2_ran Area="-24/128*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="1" tStart="CV3+CV10/2"/>
+         <GxAreaTrapezoid2_ran Area="12/128*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="2" tStart="CV3+CV10+CV11/2"/>
+         <GxAreaTrapezoid2_ran Area="-24/128*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="3" tStart="CV3+CV10+CV11*1.5"/>
+         <GxAreaTrapezoid2_ran Area="-47/128*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="4" tStart="CV3+CV10+CV11*2+CV14/2"/>
+         <GxEPI Gx1Sign="0" Gx2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="CV3+CV10+CV11*2+CV14+CV13"/>
+         <GxEPI_nodephase Gx1Sign="0" Gx2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="CV3+CV10+CV11*2+CV14+CV13+CV5+(VCtl.EPI_ETL)*VCtl.EPI_ESP"/>
+         <GxAreaTrapezoid Area="-1.7*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="crush1" Switch="$1'on','off'" tEnd="CV3+CV10+CV11*2+CV14-3e-3" tStart="CV3+CV10+CV11*2+CV14-3.5e-3"/>
+         <GxAreaTrapezoid Area="-1.7*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="crush1" Switch="$1'on','off'" tEnd="CV3+CV10+CV11*2+CV14+2.5e-3" tStart="CV3+CV10+CV11*2+CV14+2e-3"/>
+         <GxAreaTrapezoid Area="1*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="dephase" Switch="$2'on','off'" tEnd="CV3+VCtl.TE+VCtl.ResPhase/2*VCtl.EPI_ESP+0.7e-3" tStart="CV3+VCtl.TE+VCtl.ResPhase/2*VCtl.EPI_ESP+0.2e-3"/>
+      </GxR>
+      <ADC>
+         <ADCEPItrain DupSpacing="1" Duplicates="1" Notes="" Switch="$1'on','off'" tMiddle="CV3+CV10+CV11*2+CV14+CV13"/>
+         <ADCEPItrain DupSpacing="1" Duplicates="1" Notes="" Switch="$1'on','off'" tMiddle="CV3+CV10+CV11*2+CV14+CV13+CV5+(VCtl.EPI_ETL)*VCtl.EPI_ESP"/>
+      </ADC>
+      <Ext>
+         <ExtBit DupSpacing="1" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="1e-3"/>
+         <ExtBit DupSpacing="VCtl.EPI_ESP*14" Duplicates="20" Ext="5" Notes="" Switch="$1'on','off'" tStart="CV3+CV10+CV11*2+CV14+1.664e-3"/>
+         <ExtBit DupSpacing="1" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$2'on','off'" tStart="CV3+VCtl.TE+VCtl.ResPhase/2*VCtl.EPI_ESP"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="12" Notes="B2" Switch="$2'on','off'" tStart="CV3+VCtl.delta_TE+17.35e-3*2+12.185e-3-2e-3"/>
+      </Ext>
+   </Pulses>
+</MRiLabSeq>

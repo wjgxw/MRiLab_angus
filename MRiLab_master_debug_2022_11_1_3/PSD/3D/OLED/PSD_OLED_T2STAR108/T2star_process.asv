@@ -1,0 +1,13 @@
+Sx = VImg.Sx;
+Sy = VImg.Sy;
+[row,col,~,slice] = size(Sx);
+length = row*col;
+for loopi = 1:slice %multi epi
+    Sx_t = Sx((loopi-1)*length+1:loopi*length);
+    Sy_t = Sy((loopi-1)*length+1:loopi*length);
+    K1 = Sx_t+1i*Sy_t;
+    K1 = reshape(K1,[row,col]);
+    imagesc(abs(K1));colormap jet
+    set(gca,'position',[0 0 1 1]);
+    set(gcf,)
+end

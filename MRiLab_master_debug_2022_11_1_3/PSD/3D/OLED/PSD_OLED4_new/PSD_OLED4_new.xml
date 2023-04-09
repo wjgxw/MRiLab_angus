@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabSeq Name="PSD_OLED4_new" Notes="3D hybrid EPI gradient echo sequence">
+   <CVs CV1="75e-3" CV10="0" CV11="0" CV12="0" CV13="0" CV14="0" CV2="80e-3" CV3="3e-3" CV4="2e-3" CV5="0" CV6="0" CV7="0" CV8="0" WJG_ran_rf="0"/>
+   <Specials DEEP="^1" EPI="^1"/>
+   <Pulses Freq="1" Notes="regular TR section" Switch="$1'on','off'" TREnd="Inf" TRStart="1" tE="VCtl.TR" tS="0">
+      <rf>
+         <rfSinc AnchorTE="$1'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="Sinc rf pulse" Switch="$1'on','off'" TBP="6" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV4+1e-3" tStart="CV4-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="Sinc rf pulse" Switch="$1'on','off'" TBP="6" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV4+VCtl.delta_TE*2+1e-3" tStart="CV4+VCtl.delta_TE*2-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="Sinc rf pulse" Switch="$1'on','off'" TBP="6" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV4+4*VCtl.delta_TE+1e-3" tStart="CV4+4*VCtl.delta_TE-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="Sinc rf pulse" Switch="$1'on','off'" TBP="6" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV4+6*VCtl.delta_TE+1e-3" tStart="CV4+6*VCtl.delta_TE-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="180" Notes="refocuse" Switch="$1'on','off'" TBP="6" dt="4e-6" rfFreq="0" rfPhase="0" tEnd="CV4+7*VCtl.delta_TE+0.3e-3+CV3" tStart="CV4+7*VCtl.delta_TE-0.3e-3+CV3"/>
+      </rf>
+      <GzSS>
+         <GzSelective DupSpacing="0" Duplicates="1" Gz1Sign="0" Gz2Sign="1" Gz3Sign="-1" GzAmp="0" Notes="selective gradient" Switch="$1'on','off'" t2End="CV4+1e-3" t2Start="CV4-1e-3" tRamp="40e-6"/>
+         <GzSelective DupSpacing="0" Duplicates="1" Gz1Sign="-1" Gz2Sign="1" Gz3Sign="-1" GzAmp="3.49e-2" Notes="selective gradient" Switch="$2'on','off'" t2End="CV4+VCtl.delta_TE+1e-3" t2Start="CV4+VCtl.delta_TE-1e-3" tRamp="40e-6"/>
+         <GzSelective DupSpacing="0" Duplicates="1" Gz1Sign="-1" Gz2Sign="1" Gz3Sign="-1" GzAmp="3.49e-2" Notes="selective gradient" Switch="$2'on','off'" t2End="CV4+3*VCtl.delta_TE+1e-3" t2Start="CV4+3*VCtl.delta_TE-1e-3" tRamp="40e-6"/>
+         <GzSelective DupSpacing="0" Duplicates="1" Gz1Sign="-1" Gz2Sign="1" Gz3Sign="-1" GzAmp="3.49e-2" Notes="selective gradient" Switch="$2'on','off'" t2End="CV4+4*VCtl.delta_TE+1e-3" t2Start="CV4+4*VCtl.delta_TE-1e-3" tRamp="40e-6"/>
+         <GzSelective DupSpacing="0" Duplicates="1" Gz1Sign="-1" Gz2Sign="1" Gz3Sign="-1" GzAmp="3.49e-2" Notes="selective gradient" Switch="$2'on','off'" t2End="CV4+VCtl.TE/2+VCtl.delta_TE+0.8e-3" t2Start="CV4+VCtl.TE/2+VCtl.delta_TE-0.8e-3" tRamp="40e-6"/>
+      </GzSS>
+      <GyPE>
+         <GyAreaTrapezoid2_ran Area="1/4*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="1" tStart="VCtl.CV4+VCtl.delta_TE"/>
+         <GyAreaTrapezoid2_ran Area="1/4*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="2" tStart="VCtl.CV4+VCtl.delta_TE*3"/>
+         <GyAreaTrapezoid2_ran Area="1/4*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="3" tStart="VCtl.CV4+VCtl.delta_TE*5"/>
+         <GyAreaTrapezoid2_ran Area="1/8*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="4" tStart="VCtl.CV4+VCtl.delta_TE*13/2"/>
+         <GyEPI Gy1Sign="0" Gy2Sign="1" Notes="EPI phase encoding" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="11/8*VCtl.EPI_ESP*VCtl.EPI_ETL+CV3*2"/>
+         <GyAreaTrapezoid Area="-1.33*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="CV4+7*VCtl.delta_TE-0.4e-3+CV3" tStart="CV4+7*VCtl.delta_TE-0.8e-3+CV3"/>
+         <GyAreaTrapezoid Area="-1.33*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="CV4+7*VCtl.delta_TE+0.8e-3+CV3" tStart="CV4+7*VCtl.delta_TE+0.4e-3+CV3"/>
+      </GyPE>
+      <GxR>
+         <GxAreaTrapezoid2_ran Area="-1/2*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="1" tStart="VCtl.CV4+VCtl.delta_TE"/>
+         <GxAreaTrapezoid2_ran Area="1/2*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="2" tStart="VCtl.CV4+VCtl.delta_TE*3"/>
+         <GxAreaTrapezoid2_ran Area="-1/2*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="3" tStart="VCtl.CV4+VCtl.delta_TE*5"/>
+         <GxAreaTrapezoid2_ran Area="-1/4*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="4" tStart="VCtl.CV4+VCtl.delta_TE*13/2"/>
+         <GxEPI Gx1Sign="0" Gx2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="11/8*VCtl.EPI_ESP*VCtl.EPI_ETL+CV3*2"/>
+         <GxAreaTrapezoid Area="1.7*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="CV4+7*VCtl.delta_TE-0.4e-3+CV3" tStart="CV4+7*VCtl.delta_TE-0.8e-3+CV3"/>
+         <GxAreaTrapezoid Area="1.7*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="CV4+7*VCtl.delta_TE+0.8e-3+CV3" tStart="CV4+7*VCtl.delta_TE+0.4e-3+CV3"/>
+      </GxR>
+      <ADC>
+         <ADCEPI Notes="EPI readout" Switch="$1'on','off'" tMiddle="11/8*VCtl.EPI_ESP*VCtl.EPI_ETL+CV3*2"/>
+      </ADC>
+      <Ext>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="CV1/3"/>
+         <ExtBit DupSpacing="0.5e-3" Duplicates="140" Ext="5" Notes="calculate remaining scan time" Switch="$1'on','off'" tStart="CV4+7*VCtl.delta_TE"/>
+      </Ext>
+   </Pulses>
+</MRiLabSeq>

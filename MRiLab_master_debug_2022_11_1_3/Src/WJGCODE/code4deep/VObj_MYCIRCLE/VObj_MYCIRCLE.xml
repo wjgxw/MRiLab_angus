@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabVObj Gyro="267538030.3797" Model="$1'Normal','MT','ME','GM'" Name="VObj_MYCIRCLE" Notes="Customized 3D Sphere Virtual Object" Type="Water" TypeNum="1" XDim="500" XDimRes="4.4000e-04" YDim="500" YDimRes="4.4000e-04" ZDim="3" ZDimRes="0.002">
+   <VObjEllipsoid Alpha="1" Color="r" Notes="Ellipsoid Object">
+      <Geometry CenterX="0" CenterY="0" CenterZ="0" FaceNum="20" RadiusX="0.07" RadiusY="0.07" RadiusZ="1"/>
+      <Property ChemShift="0" ECon="0.5 0.5 0.5" K="10" LineShapeFlag="0" MassDen="1000" Rho="1" T1="1" T2="0.06" T2Star="0.06" TypeFlag="0" TypeIdx="1"/>
+   </VObjEllipsoid>
+</MRiLabVObj>

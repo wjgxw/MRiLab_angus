@@ -1,0 +1,8 @@
+======oled Sequence=========
+Usage : oled  2 pulse
+Version : 1.0
+Author : Angus
+Time : 04/4/2018
+Affiliation : XMU
+wjtcw@hotmail.com
+======================================

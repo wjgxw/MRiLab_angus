@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabSeq Name="PSD_OLED_diffusion2" Notes="3D hybrid EPI gradient echo sequence">
+   <CVs CV1="75e-3" CV10="0" CV11="0" CV12="0" CV13="0" CV14="0" CV2="80e-3" CV3="3e-3" CV4="0" CV5="0" CV6="0" CV7="0" CV8="0" CV9="0" LLOLED_Slice="2"/>
+   <Specials DEEP_duffision="^1" EPI="^1"/>
+   <Pulses Freq="1" Notes="regular TR section" Switch="$1'on','off'" TREnd="Inf" TRStart="1" tE="VCtl.TR" tS="0">
+      <rf>
+         <rfSinc AnchorTE="$1'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="1" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+1e-3" tStart="CV3-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="1/3*VCtl.EPI_ESP*VCtl.EPI_ETL+CV3+1e-3" tStart="1/3*VCtl.EPI_ESP*VCtl.EPI_ETL+CV3-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="180" Notes="refocuse" Switch="$1'on','off'" TBP="6" dt="4e-6" rfFreq="0" rfPhase="0" tEnd="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL+0.8e-3+CV3+2.016e-3" tStart="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL-0.8e-3+CV3+2.016e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="180" Notes="refocuse" Switch="$1'on','off'" TBP="6" dt="4e-6" rfFreq="0" rfPhase="0" tEnd="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL+0.8e-3+CV3+2.016e-3*2+1.816e-3" tStart="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL-0.8e-3+CV3+2.016e-3*2+1.816e-3"/>
+      </rf>
+      <GzSS>
+         <GzCartesian DupSpacing="0" Duplicates="1" Gz1Sign="1" Gz2Sign="0" Notes="cartesian phase" Switch="$1'on','off'" t1End="CV2" t1Start="CV1" t2End="VCtl.TE+CV2" t2Start="VCtl.TE+CV1" tRamp="100e-6"/>
+         <GzAreaTrapezoid Area="4*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tEnd="VCtl.TE/2+VCtl.delta_TE/4-2e-3" tStart="VCtl.TE/2+VCtl.delta_TE/4-3e-3"/>
+         <GzAreaTrapezoid Area="4*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tEnd="VCtl.TE/2+VCtl.delta_TE/4+3e-3" tStart="VCtl.TE/2+VCtl.delta_TE/4+2e-3"/>
+         <GzAreaTrapezoid Area="4*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tEnd="VCtl.TE/2+VCtl.delta_TE/4-1.5e-3+77.14e-3" tStart="VCtl.TE/2+VCtl.delta_TE/4-2.5e-3+77.14e-3"/>
+         <GzAreaTrapezoid Area="4*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tEnd="VCtl.TE/2+VCtl.delta_TE/4+2.5e-3+77.14e-3" tStart="VCtl.TE/2+VCtl.delta_TE/4+1.5e-3+77.14e-3"/>
+      </GzSS>
+      <GyPE>
+         <GyEPI_nodephase Gy1Sign="1" Gy2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="7/6*VCtl.EPI_ESP*VCtl.EPI_ETL+2*2.016e-3"/>
+         <GyAreaTrapezoid Area="1.7*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL-1e-3+CV3+2.016e-3" tStart="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL-1.8e-3+CV3+2.016e-3"/>
+         <GyAreaTrapezoid Area="1.7*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL+1.8e-3+CV3+2.016e-3" tStart="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL+1e-3+CV3+2.016e-3"/>
+         <GyAreaTrapezoid Area="1.1*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL-1e-3+CV3+2.016e-3*2+1.816e-3" tStart="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL-1.5e-3+CV3+2.016e-3*2+1.816e-3"/>
+         <GyAreaTrapezoid Area="1.1*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL+1.5e-3+CV3+2.016e-3*2+1.816e-3" tStart="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL+1e-3+CV3+2.016e-3*2+1.816e-3"/>
+         <GyEPI_nodephase Gy1Sign="1" Gy2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="13/6*VCtl.EPI_ESP*VCtl.EPI_ETL+2*2.016e-3+3.632e-3"/>
+         <GyAreaTrapezoid2_ran Area="-1/3*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="1" tStart="1/6*VCtl.EPI_ESP*VCtl.EPI_ETL"/>
+         <GyAreaTrapezoid2_ran Area="-1/3*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" grady_idx="2" tStart="3/6*VCtl.EPI_ESP*VCtl.EPI_ETL"/>
+      </GyPE>
+      <GxR>
+         <GxEPI_nodephase Gx1Sign="1" Gx2Sign="1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="7/6*VCtl.EPI_ESP*VCtl.EPI_ETL+2*2.016e-3"/>
+         <GxAreaTrapezoid Area="1.33*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL-1e-3+CV3+2.016e-3" tStart="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL-1.8e-3+CV3+2.016e-3"/>
+         <GxAreaTrapezoid Area="1.33*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL+1.8e-3+CV3+2.016e-3" tStart="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL+1e-3+CV3+2.016e-3"/>
+         <GxAreaTrapezoid Area="1.57*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL-1e-3+CV3+2.016e-3*2+1.816e-3" tStart="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL-1.5e-3+CV3+2.016e-3*2+1.816e-3"/>
+         <GxAreaTrapezoid Area="1.57*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" tEnd="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL+1.5e-3+CV3+2.016e-3*2+1.816e-3" tStart="5/3*VCtl.EPI_ESP*VCtl.EPI_ETL+1e-3+CV3+2.016e-3*2+1.816e-3"/>
+         <GxEPI_nodephase Gx1Sign="-1" Gx2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR" t2Middle="13/6*VCtl.EPI_ESP*VCtl.EPI_ETL+2*2.016e-3+3.632e-3"/>
+         <GxAreaTrapezoid2_ran Area="1/3*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="1" tStart="1/6*VCtl.EPI_ESP*VCtl.EPI_ETL"/>
+         <GxAreaTrapezoid2_ran Area="1/3*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes="" Switch="$1'on','off'" gradx_idx="2" tStart="3/6*VCtl.EPI_ESP*VCtl.EPI_ETL"/>
+      </GxR>
+      <ADC>
+         <ADCEPI Notes="EPI readout" Switch="$1'on','off'" tMiddle="7/6*VCtl.EPI_ESP*VCtl.EPI_ETL+2*2.016e-3"/>
+         <ADCEPI Notes="EPI readout" Switch="$1'on','off'" tMiddle="13/6*VCtl.EPI_ESP*VCtl.EPI_ETL+2*2.016e-3+3.632e-3"/>
+      </ADC>
+      <Ext>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="CV1/3"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="5" Notes="calculate remaining scan time" Switch="$1'on','off'" tStart="0"/>
+         <ExtBit DupSpacing="7e-3" Duplicates="12" Ext="5" Notes="calculate remaining scan time" Switch="$1'on','off'" tStart="2/3*VCtl.EPI_ESP*VCtl.EPI_ETL+0.8e-3+CV3+2.016e-3"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="10" Notes="diffusion" Switch="$1'on','off'" tStart="1/6*VCtl.EPI_ESP*VCtl.EPI_ETL+1e-3"/>
+      </Ext>
+   </Pulses>
+</MRiLabSeq>

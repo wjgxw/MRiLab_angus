@@ -1,0 +1,8 @@
+======oled Sequence=========
+Usage : PSD_OLED_T2_philips571AP_ZOOM
+Version : 1.0
+Author : Angus
+Time : 24/9/2021
+Affiliation : XMU
+wjtcw@hotmail.com
+======================================

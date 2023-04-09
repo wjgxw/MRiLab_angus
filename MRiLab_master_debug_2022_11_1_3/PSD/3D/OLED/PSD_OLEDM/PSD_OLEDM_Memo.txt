@@ -1,0 +1,8 @@
+======oled multislice Sequence=========
+Usage : oled multislice
+Version : 1.0
+Author : Angus
+Time : 04/19/2018
+Affiliation : University of Xiamen
+wjtcw@hotmail.com
+======================================

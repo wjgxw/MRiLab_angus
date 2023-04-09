@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /data4/angus_wj/MRiLab/MRiLab_master_2020.5.12_2/Lib/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_753e1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_753e1.dir/build.make CMakeFiles/cmTC_753e1.dir/build
+make[1]: Entering directory '/data4/angus_wj/MRiLab/MRiLab_master_2020.5.12_2/Lib/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_753e1.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_753e1.dir/CheckSymbolExists.c.o   -c /data4/angus_wj/MRiLab/MRiLab_master_2020.5.12_2/Lib/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_753e1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_753e1.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_753e1.dir/CheckSymbolExists.c.o  -o cmTC_753e1 -rdynamic 
+CMakeFiles/cmTC_753e1.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_753e1.dir/build.make:97: recipe for target 'cmTC_753e1' failed
+make[1]: *** [cmTC_753e1] Error 1
+make[1]: Leaving directory '/data4/angus_wj/MRiLab/MRiLab_master_2020.5.12_2/Lib/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_753e1/fast' failed
+make: *** [cmTC_753e1/fast] Error 2
+
+File /data4/angus_wj/MRiLab/MRiLab_master_2020.5.12_2/Lib/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /data4/angus_wj/MRiLab/MRiLab_master_2020.5.12_2/Lib/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_049eb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_049eb.dir/build.make CMakeFiles/cmTC_049eb.dir/build
+make[1]: Entering directory '/data4/angus_wj/MRiLab/MRiLab_master_2020.5.12_2/Lib/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_049eb.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_049eb.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_049eb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_049eb.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_049eb.dir/CheckFunctionExists.c.o  -o cmTC_049eb -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_049eb.dir/build.make:97: recipe for target 'cmTC_049eb' failed
+make[1]: *** [cmTC_049eb] Error 1
+make[1]: Leaving directory '/data4/angus_wj/MRiLab/MRiLab_master_2020.5.12_2/Lib/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_049eb/fast' failed
+make: *** [cmTC_049eb/fast] Error 2
+
+

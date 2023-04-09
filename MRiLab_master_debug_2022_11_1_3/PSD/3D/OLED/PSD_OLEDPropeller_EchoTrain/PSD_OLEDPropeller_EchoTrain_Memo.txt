@@ -1,0 +1,7 @@
+======3D Gradient Echo Sequence=========
+Usage : OLED Propeller EchoTrain
+Version : 1.0
+Author : wjc
+Time : 12/06/2020
+Affiliation : University of Xiamen
+======================================

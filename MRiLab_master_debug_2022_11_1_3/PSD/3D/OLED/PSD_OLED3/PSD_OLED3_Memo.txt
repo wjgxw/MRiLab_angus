@@ -1,0 +1,8 @@
+======oled3 Sequence=========
+Usage : oled  3 pulse
+Version : 1.0
+Author : Angus
+Time : 04/13/2018
+Affiliation : University of Xiamen
+wjtcw@hotmail.com
+======================================

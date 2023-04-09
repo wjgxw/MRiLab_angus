@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabMot Name="Mot_RotateHead" Notes="Customized Head Rotation Motion">
+   <MotRotate Angle="'sin(3.14*2*t)'" Axis="[0;0;1]" dt="5e-4" tEnd="110e-3" tStart="5e-3"/>
+   <MotTranslate Direction="[1;1;0]" Displacement="'0*sin(t)'" dt="1" tEnd="0" tStart="0"/>
+</MRiLabMot>

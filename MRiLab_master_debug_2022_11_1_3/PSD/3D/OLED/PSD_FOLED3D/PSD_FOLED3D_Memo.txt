@@ -1,0 +1,10 @@
+========3D Fast Spin Echo OLED Sequence======
+Usage : run 3D FOLED scan
+Version : 1.0
+Author : Wenhua Geng
+Time : 2021/01/12
+Affiliation : Xiamen University
+=====================================
+Note: 
+For FSE:to satisfy CPMG condition and acquire signal at the center of two consecutive refocusing pulse, TE must be (floor(FSE_ETL/2)+1)*FSE_ESP.
+For OLED:Shift gradient should be well designed, modify if necessary. CV10 and CV11 control the gradient level.

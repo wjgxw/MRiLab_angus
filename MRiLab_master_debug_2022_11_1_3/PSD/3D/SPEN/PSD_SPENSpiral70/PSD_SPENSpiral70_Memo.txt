@@ -1,0 +1,9 @@
+======spen spiral Sequence=========
+Usage : spen spiral
+Version : 1.0
+Author : wangwei 
+Time :  
+Affiliation : University of Xiamen
+
+======================================
+

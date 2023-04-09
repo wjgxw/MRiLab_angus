@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Deep DEEP_learning="0"
+      FILE_path="'/data4/angus_wj/virtualobj/abo/code/tra/gensample/'"
+      end="1098"
+      output_ADC="$1'off','on'"
+      output_B0="$1'off','on'"
+      output_B1="$2'off','on'"
+      output_B2="$1'off','on'"
+      output_Rho="$2'off','on'"
+      output_T1="$1'off','on'"
+      output_T2="$2'off','on'"
+      output_T2STAR="$1'off','on'"
+      output_path="'/data4/angus_wj/MRH_ZOOM_2pulse/gensample/sample1/'"
+      start="1"/>

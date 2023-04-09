@@ -1,0 +1,7 @@
+=================3D Spin Echo ==================
+Usage : run 3D IR spin echo
+Version : 1.0
+Author : Angus
+Time : 07/15/2020
+Affiliation : University of Wisconsin-Madison
+===============================================

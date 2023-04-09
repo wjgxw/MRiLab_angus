@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabSeq Name="PSD_OLED_ZOOM_REST" Notes="3D hybrid EPI gradient echo sequence">
+   <CVs CV1="1" CV10="(VCtl.EPI_ETL/2)*VCtl.EPI_ESP"
+        CV11="(VCtl.EPI_ETL/4)*VCtl.EPI_ESP"
+        CV12="3.54e-3"
+        CV13="21.5e-3"
+        CV14="4.1e-3"
+        CV2="80e-3"
+        CV3="102e-3"
+        CV4="200e-3"
+        CV5="1.2e-3"
+        CV6="0"
+        CV7="0"
+        CV8="0"
+        CV9="5e-3"
+        LLOLED_Slice="1"/>
+   <Specials DEEP="^1" EPI="^1"/>
+   <Pulses Freq="1" Notes="regular TR section" Switch="$1'on','off'" TREnd="Inf"
+           TRStart="1"
+           tE="VCtl.TR"
+           tS="0">
+      <rf>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1"
+                 DupSpacing="0"
+                 Duplicates="1"
+                 FA="VCtl.FlipAng"
+                 Notes="excitation rf"
+                 Switch="$1'on','off'"
+                 TBP="4"
+                 dt="20e-5"
+                 rfFreq="0"
+                 rfPhase="0"
+                 tEnd="CV3+1.5e-3"
+                 tStart="CV3-1.5e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1"
+                 DupSpacing="0"
+                 Duplicates="1"
+                 FA="VCtl.FlipAng"
+                 Notes="excitation rf"
+                 Switch="$1'on','off'"
+                 TBP="4"
+                 dt="20e-5"
+                 rfFreq="0"
+                 rfPhase="0"
+                 tEnd="CV3+1.5e-3+CV10"
+                 tStart="CV3-1.5e-3+CV10"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1"
+                 DupSpacing="0"
+                 Duplicates="1"
+                 FA="180"
+                 Notes="excitation rf"
+                 Switch="$1'on','off'"
+                 TBP="6"
+                 dt="20e-5"
+                 rfFreq="0"
+                 rfPhase="0"
+                 tEnd="CV3+CV10+CV11+CV14+2e-3"
+                 tStart="CV3+CV10+CV11+CV14-2e-3"/>
+         <rfREST AnchorTE="$2'on','off'" CoilID="1" DupSpacing="0" Duplicates="1" FA="364"
+                 Notes="customized rf pulse"
+                 Switch="$1'on','off'"
+                 WJGAMP="$1'qpp_am_shape_a90_tbw200','qpp_am_shape_a116_tbw200','WJG_am_shape'"
+                 WJGFM="$1'qpp_fm_shape_a90_tbw200','qpp_fm_shape_a116_tbw200','WJG_fm_shape'"
+                 WJGFM_scale="18232.65"
+                 WJGFM_shift="160*42.58*0.7683"
+                 dt="4e-6"
+                 rfPhase="0"
+                 tEnd="CV9+2.75e-3"
+                 tStart="CV9-2.75e-3"/>
+         <rfREST AnchorTE="$2'on','off'" CoilID="1" DupSpacing="0" Duplicates="1" FA="364"
+                 Notes="customized rf pulse"
+                 Switch="$1'on','off'"
+                 WJGAMP="$1'qpp_am_shape_a90_tbw200','qpp_am_shape_a116_tbw200','WJG_am_shape'"
+                 WJGFM="$1'qpp_fm_shape_a90_tbw200','qpp_fm_shape_a116_tbw200','WJG_fm_shape'"
+                 WJGFM_scale="18232.65"
+                 WJGFM_shift="160*42.58*0.7683"
+                 dt="4e-6"
+                 rfPhase="0"
+                 tEnd="CV9+2.75e-3+14.013e-3"
+                 tStart="CV9-2.75e-3+14.013e-3"/>
+      </rf>
+      <GzSS>
+         <GzCartesian DupSpacing="0" Duplicates="1" Gz1Sign="0" Gz2Sign="1" Notes="cartesian phase"
+                      Switch="$1'on','off'"
+                      t1End="CV2"
+                      t1Start="CV1"
+                      t2End="VCtl.TE+CV2"
+                      t2Start="VCtl.TE+CV1"
+                      tRamp="100e-6"/>
+      </GzSS>
+      <GyPE>
+         <GyAreaTrapezoid2_ran Area="(-1/2+0/128)*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase"
+                               DupSpacing="0"
+                               Duplicates="1"
+                               Notes=""
+                               Switch="$1'on','off'"
+                               grady_idx="1"
+                               tStart="CV3+CV10/2"/>
+         <GyAreaTrapezoid2_ran Area="(-1/4+0/128)*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase"
+                               DupSpacing="0"
+                               Duplicates="1"
+                               Notes=""
+                               Switch="$1'on','off'"
+                               grady_idx="3"
+                               tStart="CV3+CV10+CV11/2"/>
+         <GyEPI Gy1Sign="0" Gy2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR"
+                t2Middle="CV3+CV10+CV11+CV14+CV13"/>
+         <GyAreaTrapezoid2 Area="-1/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase" DupSpacing="0"
+                           Duplicates="1"
+                           Notes=""
+                           Switch="$2'on','off'"
+                           tStart="CV3+CV10+CV11*2+CV14+CV13+0.79e-3+(VCtl.EPI_ETL-1)*VCtl.EPI_ESP"/>
+         <GyEPI_nodephase Gy1Sign="1" Gy2Sign="1" Notes="" Switch="$2'on','off'" t1Start="VCtl.TR"
+                          t2Middle="CV3+CV10+CV11*2+CV14+CV13+CV5+(VCtl.EPI_ETL)*VCtl.EPI_ESP"/>
+         <GyAreaTrapezoid Area="-2.3*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase"
+                          DupSpacing="0"
+                          Duplicates="1"
+                          Notes="crush1"
+                          Switch="$1'on','off'"
+                          tEnd="CV3+CV10+CV11+CV14-3e-3"
+                          tStart="CV3+CV10+CV11+CV14-3.6e-3"/>
+         <GyAreaTrapezoid Area="-2.3*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase"
+                          DupSpacing="0"
+                          Duplicates="1"
+                          Notes="crush1"
+                          Switch="$1'on','off'"
+                          tEnd="CV3+CV10+CV11+CV14+3.6e-3"
+                          tStart="CV3+CV10+CV11+CV14+3e-3"/>
+         <GyTrapezoid DupSpacing="0" Duplicates="1" GyAmp="0.7683e-3" Notes="" Switch="$1'on','off'"
+                      sRamp="0.1e-3"
+                      tEnd="CV9+2.85e-3"
+                      tRamp="0.1e-3"
+                      tStart="CV9-2.85e-3"/>
+         <GyTrapezoid DupSpacing="0" Duplicates="1" GyAmp="0.7683e-3" Notes="" Switch="$1'on','off'"
+                      sRamp="0.1e-3"
+                      tEnd="CV9+2.85e-3+14.013e-3"
+                      tRamp="0.1e-3"
+                      tStart="CV9-2.85e-3+14.013e-3"/>
+      </GyPE>
+      <GxR>
+         <GxAreaTrapezoid2_ran Area="(-1/2-3/128)*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes=""
+                               Switch="$1'on','off'"
+                               gradx_idx="1"
+                               tStart="CV3+CV10/2"/>
+         <GxAreaTrapezoid2_ran Area="(-1/4-0)*1/VCtl.RFreq" DupSpacing="0" Duplicates="1" Notes=""
+                               Switch="$1'on','off'"
+                               gradx_idx="3"
+                               tStart="CV3+CV10+CV11/2"/>
+         <GxEPI Gx1Sign="0" Gx2Sign="-1" Notes="" Switch="$1'on','off'" t1Start="VCtl.TR"
+                t2Middle="CV3+CV10+CV11+CV14+CV13"/>
+         <GxEPI_nodephase Gx1Sign="0" Gx2Sign="-1" Notes="" Switch="$2'on','off'" t1Start="VCtl.TR"
+                          t2Middle="CV3+CV10+CV11*2+CV14+CV13+CV5+(VCtl.EPI_ETL)*VCtl.EPI_ESP"/>
+         <GxAreaTrapezoid Area="-1.73*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase"
+                          DupSpacing="0"
+                          Duplicates="1"
+                          Notes="crush1"
+                          Switch="$1'on','off'"
+                          tEnd="CV3+CV10+CV11+CV14-3e-3"
+                          tStart="CV3+CV10+CV11+CV14-3.6e-3"/>
+         <GxAreaTrapezoid Area="-1.73*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase"
+                          DupSpacing="0"
+                          Duplicates="1"
+                          Notes="crush1"
+                          Switch="$1'on','off'"
+                          tEnd="CV3+CV10+CV11+CV14+3.6e-3"
+                          tStart="CV3+CV10+CV11+CV14+3e-3"/>
+         <GxAreaTrapezoid Area="-1*VCtl.ResPhase/VCtl.EPI_ETL/VCtl.EPI_ShotNum/VCtl.RPhase"
+                          DupSpacing="0"
+                          Duplicates="1"
+                          Notes="dephase"
+                          Switch="$2'on','off'"
+                          tEnd="CV3+CV10+CV11*2+CV14-3e-3+VCtl.ResPhase*VCtl.EPI_ESP+7.7e-3"
+                          tStart="CV3+CV10+CV11*2+CV14-3e-3+VCtl.ResPhase*VCtl.EPI_ESP+7.2e-3"/>
+      </GxR>
+      <ADC>
+         <ADCEPItrain DupSpacing="1" Duplicates="1" Notes="" Switch="$1'on','off'"
+                      tMiddle="CV3+CV10+CV11+CV14+CV13"/>
+         <ADCEPItrain DupSpacing="1" Duplicates="1" Notes="" Switch="$2'on','off'"
+                      tMiddle="CV3+CV10+CV11*2+CV14+CV13+CV5+(VCtl.EPI_ETL)*VCtl.EPI_ESP"/>
+      </ADC>
+      <Ext>
+         <ExtBit DupSpacing="1" Duplicates="1" Ext="1" Notes="reset K space location"
+                 Switch="$1'on','off'"
+                 tStart="1e-3"/>
+         <ExtBit DupSpacing="VCtl.EPI_ESP*8" Duplicates="10" Ext="5" Notes=""
+                 Switch="$1'on','off'"
+                 tStart="CV3+CV10+CV11+CV14+1.664e-3"/>
+         <ExtBit DupSpacing="1" Duplicates="1" Ext="1" Notes="reset K space location"
+                 Switch="$2'on','off'"
+                 tStart="CV3+VCtl.TE+VCtl.ResPhase/2*VCtl.EPI_ESP"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="6" Notes="spoil" Switch="$1'on','off'"
+                 tStart="15e-3"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="14" Notes="profile" Switch="$1'on','off'"
+                 tStart="50e-3"/>
+      </Ext>
+   </Pulses>
+</MRiLabSeq>

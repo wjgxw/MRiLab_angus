@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabMot Name="Mot_blade8_cRotShift" Notes="Uni-directional Head Shift">
+   <MotTranslate Direction="[round(rand());round(rand());0]" Displacement="'(rand()*2-1)*0.22/128*5/0.2*t'" dt="1e-3" tEnd="200e-3" tStart="0e-3"/>
+   <MotRotate Angle="'(rand()*2-1)*pi/18/0.2*t'" Axis="[0;0;1]" dt="1e-3" tEnd="200e-3" tStart="0e-3"/>
+</MRiLabMot>

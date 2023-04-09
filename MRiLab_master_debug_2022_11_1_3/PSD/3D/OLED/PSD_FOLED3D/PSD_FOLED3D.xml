@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabSeq Name="PSD_FOLED3D" Notes="3D Fast Spin Echo OLED PSD">
+   <CVs CV1="1e-3" CV10="1" CV11="1/2" CV12="0" CV13="0" CV14="0" CV2="3e-3" CV3="0" CV4="10.23e-3" CV5="15.81e-3" CV6="21.39e-3" CV7="30e-3" CV8="0" CV9="0"/>
+   <Specials DEEP="^1" FSE="^1"/>
+   <Pulses Freq="1" Notes="regular TR section" Switch="$1'on','off'" TREnd="Inf" TRStart="1" tE="VCtl.TR" tS="0">
+      <rf>
+         <rfSinc AnchorTE="$1'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="5e-6" rfFreq="0" rfPhase="0" tEnd="CV3+0.4e-3" tStart="CV3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="VCtl.FSE_ESP" Duplicates="VCtl.FSE_ETL" FA="180" Notes="180 degree rf" Switch="$1'on','off'" TBP="4" dt="5e-6" rfFreq="0" rfPhase="pi/2" tEnd="30e-3+0.4e-3" tStart="30e-3"/>
+         <rfRect AnchorTE="$1'on','off'" CoilID="1" DupSpacing="20e-3" Duplicates="1" FA="VCtl.FlipAng" Notes="hard pulse" Switch="$2'on','off'" dt="1e-5" rfFreq="0" rfPhase="0" tEnd="0.4e-3" tStart="0e-3"/>
+         <rfRect AnchorTE="$2'on','off'" CoilID="1" DupSpacing="VCtl.FSE_ESP" Duplicates="VCtl.FSE_ETL" FA="180" Notes="hard pulse" Switch="$2'on','off'" dt="1e-5" rfFreq="0" rfPhase="pi/2" tEnd="30e-3+0.4e-3" tStart="30e-3"/>
+         <rfSinc AnchorTE="$1'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="5e-6" rfFreq="0" rfPhase="0" tEnd="CV4+0.4e-3" tStart="CV4"/>
+         <rfSinc AnchorTE="$1'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="5e-6" rfFreq="0" rfPhase="0" tEnd="CV5+0.4e-3" tStart="CV5"/>
+         <rfSinc AnchorTE="$1'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="5e-6" rfFreq="0" rfPhase="0" tEnd="CV6+0.4e-3" tStart="CV6"/>
+         <rfRect AnchorTE="$1'on','off'" CoilID="1" DupSpacing="20e-3" Duplicates="1" FA="VCtl.FlipAng" Notes="hard pulse" Switch="$2'on','off'" dt="1e-5" rfFreq="0" rfPhase="0" tEnd="CV4+0.4e-3" tStart="CV4"/>
+         <rfRect AnchorTE="$1'on','off'" CoilID="1" DupSpacing="20e-3" Duplicates="1" FA="VCtl.FlipAng" Notes="hard pulse" Switch="$2'on','off'" dt="1e-5" rfFreq="0" rfPhase="0" tEnd="CV5+0.4e-3" tStart="CV5+0e-3"/>
+         <rfRect AnchorTE="$1'on','off'" CoilID="1" DupSpacing="20e-3" Duplicates="1" FA="VCtl.FlipAng" Notes="hard pulse" Switch="$2'on','off'" dt="1e-5" rfFreq="0" rfPhase="0" tEnd="CV6+0.4e-3" tStart="CV6+0e-3"/>
+      </rf>
+      <GzSS>
+         <GzCartesian DupSpacing="VCtl.FSE_ESP" Duplicates="VCtl.FSE_ETL" Gz1Sign="1" Gz2Sign="-1" Notes="cartesian phase" Switch="$1'on','off'" t1End="VCtl.FSE_ESP/2-CV1+30e-3" t1Start="VCtl.FSE_ESP/2-CV2+30e-3" t2End="VCtl.FSE_ESP/2+CV2+30e-3" t2Start="VCtl.FSE_ESP/2+CV1+30e-3" tRamp="100e-6"/>
+      </GzSS>
+      <GyPE>
+         <GyFSE Gy1Sign="1" Gy2Sign="-1" Notes="FSE phase encoding" Switch="$1'on','off'" tGy1="1e-3" tGy2="1e-3" tMiddle="VCtl.TE+3.35e-3" tOffset="3e-3"/>
+         <GyAreaTrapezoid2_ran Area="-26/128*VCtl.ResPhase/VCtl.FSE_ETL/VCtl.FSE_ShotNum/VCtl.RPhase/CV10" DupSpacing="0" Duplicates="1" Notes="Shift encoding" Switch="$1'on','off'" grady_idx="1" tStart="CV3/2+CV4/2"/>
+         <GyAreaTrapezoid2_ran Area="-24/128*VCtl.ResPhase/VCtl.FSE_ETL/VCtl.FSE_ShotNum/VCtl.RPhase/CV10" DupSpacing="0" Duplicates="1" Notes="Shift encoding" Switch="$1'on','off'" grady_idx="2" tStart="CV4/2+CV5/2"/>
+         <GyAreaTrapezoid2_ran Area="-54/128*VCtl.ResPhase/VCtl.FSE_ETL/VCtl.FSE_ShotNum/VCtl.RPhase/CV10" DupSpacing="0" Duplicates="1" Notes="Shift encoding" Switch="$1'on','off'" grady_idx="3" tStart="CV5/2+CV6/2"/>
+         <GyAreaTrapezoid2_ran Area="56/128*VCtl.ResPhase/VCtl.FSE_ETL/VCtl.FSE_ShotNum/VCtl.RPhase/CV10" DupSpacing="0" Duplicates="1" Notes="Shift encoding" Switch="$1'on','off'" grady_idx="4" tStart="CV6/2+CV7/2"/>
+      </GyPE>
+      <GxR>
+         <GxFSE Gx1Sign="1" Gx2Sign="1" Notes="FSE frequency encoding" Switch="$1'on','off'" t1Start="27.5e-3" t2Middle="VCtl.TE+3.35e-3"/>
+         <GyAreaTrapezoid2_ran Area="-24/128*1/VCtl.RFreq/CV11" DupSpacing="0" Duplicates="1" Notes="Shift encoding" Switch="$1'on','off'" grady_idx="1" tStart="CV3/2+CV4/2"/>
+         <GyAreaTrapezoid2_ran Area="12/128*1/VCtl.RFreq/CV11" DupSpacing="0" Duplicates="1" Notes="Shift encoding" Switch="$1'on','off'" grady_idx="2" tStart="CV4/2+CV5/2"/>
+         <GyAreaTrapezoid2_ran Area="-20/128*1/VCtl.RFreq/CV11" DupSpacing="0" Duplicates="1" Notes="Shift encoding" Switch="$1'on','off'" grady_idx="3" tStart="CV5/2+CV6/2"/>
+         <GyAreaTrapezoid2_ran Area="16/128*1/VCtl.RFreq/CV11" DupSpacing="0" Duplicates="1" Notes="Shift encoding" Switch="$1'on','off'" grady_idx="4" tStart="CV6/2+CV7/2"/>
+      </GxR>
+      <ADC>
+         <ADCFSE Notes="FSE readout" Switch="$1'on','off'" tMiddle="VCtl.TE+3.35e-3"/>
+      </ADC>
+      <Ext>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="0.4e-3"/>
+         <ExtBit DupSpacing="VCtl.FSE_ESP" Duplicates="VCtl.FSE_ETL" Ext="5" Notes="calculate remaining scan time" Switch="$1'on','off'" tStart="0"/>
+         <ExtBit DupSpacing="VCtl.FSE_ESP" Duplicates="VCtl.FSE_ETL" Ext="2" Notes="reverse K space location" Switch="$2'on','off'" tStart="VCtl.FSE_ESP/2"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="10" Notes="diffusion" Switch="$2'on','off'" tStart="0.5e-3"/>
+      </Ext>
+   </Pulses>
+</MRiLabSeq>

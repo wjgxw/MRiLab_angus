@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabSeq Name="PSD_EPI180" Notes="3D hybrid EPI gradient echo sequence">
+   <CVs CV1="10e-3" CV10="0" CV11="0" CV12="0" CV13="0" CV14="0" CV2="15e-3" CV3="0" CV4="0" CV5="0" CV6="0" CV7="0" CV8="0" CV9="0"/>
+   <Specials EPI="^1"/>
+   <Pulses Freq="1" Notes="regular TR section" Switch="$1'on','off'" TREnd="Inf" TRStart="1" tE="VCtl.TR" tS="0">
+      <rf>
+         <rfSinc AnchorTE="$1'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="3e-3" tStart="1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="180" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="3e-3+VCtl.TE/2" tStart="1e-3+VCtl.TE/2"/>
+      </rf>
+      <GzSS>
+         <GzCartesian DupSpacing="0" Duplicates="1" Gz1Sign="1" Gz2Sign="0" Notes="cartesian phase" Switch="$2'on','off'" t1End="CV2" t1Start="CV1" t2End="VCtl.TE+CV2" t2Start="VCtl.TE+CV1" tRamp="100e-6"/>
+         <GzSelective DupSpacing="0" Duplicates="1" Gz1Sign="0" Gz2Sign="1" Gz3Sign="-1" GzAmp="0.0235" Notes="selective gradient" Switch="$2'on','off'" t2End="3e-3" t2Start="1e-3" tRamp="100e-6"/>
+         <GzSelective DupSpacing="0" Duplicates="1" Gz1Sign="0" Gz2Sign="1" Gz3Sign="0" GzAmp="0.0235" Notes="selective gradient" Switch="$2'on','off'" t2End="3e-3+VCtl.TE/2" t2Start="1e-3+VCtl.TE/2" tRamp="100e-6"/>
+         <GzTrapezoid DupSpacing="0" Duplicates="1" GzAmp="0" Notes="" Switch="$1'on','off'" sRamp="2" tEnd="VCtl.TE/2-1e-3" tRamp="100e-6" tStart="VCtl.TE/2-2e-3"/>
+         <GzTrapezoid DupSpacing="0" Duplicates="1" GzAmp="0.0169" Notes="" Switch="$2'on','off'" sRamp="2" tEnd="VCtl.TE/2+6e-3" tRamp="100e-6" tStart="VCtl.TE/2+5e-3"/>
+      </GzSS>
+      <GyPE>
+         <GyEPI Gy1Sign="1" Gy2Sign="1" Notes="EPI phase encoding" Switch="$1'on','off'" t1Start="VCtl.TE/4-2e-3" t2Middle="VCtl.TE"/>
+         <GyAreaTrapezoid Area="1107" DupSpacing="3.5e-3" Duplicates="2" Notes="" Switch="$2'on','off'" tEnd="0.5e-3+VCtl.TE/2" tStart="VCtl.TE/2"/>
+         <GyTrapezoid DupSpacing="0" Duplicates="1" GyAmp="0.1" Notes="" Switch="$2'on','off'" sRamp="2" tEnd="8.5e-3" tRamp="0.5e-3" tStart="5.5e-3"/>
+         <GyTrapezoid DupSpacing="0" Duplicates="1" GyAmp="-0.1" Notes="" Switch="$2'on','off'" sRamp="2" tEnd="23.5e-3" tRamp="0.5e-3" tStart="20.5e-3"/>
+      </GyPE>
+      <GxR>
+         <GxEPI Gx1Sign="-1" Gx2Sign="-1" Notes="EPI frequency encoding" Switch="$1'on','off'" t1Start="VCtl.TE/4-2e-3" t2Middle="VCtl.TE"/>
+         <GxAreaTrapezoid Area="1367" DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tEnd="0.5e-3+VCtl.TE/2" tStart="VCtl.TE/2"/>
+         <GxAreaTrapezoid Area="1367" DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tEnd="4e-3+VCtl.TE/2" tStart="3.5e-3+VCtl.TE/2"/>
+         <GxTrapezoid DupSpacing="0" Duplicates="1" GxAmp="0.1" Notes="diff1" Switch="$2'on','off'" sRamp="2" tEnd="18.5e-3" tRamp="0.5e-3" tStart="5.5e-3"/>
+         <GxTrapezoid DupSpacing="0" Duplicates="1" GxAmp="-0.1" Notes="diff2" Switch="$2'on','off'" sRamp="2" tEnd="35.5e-3" tRamp="0.5e-3" tStart="22.5e-3"/>
+      </GxR>
+      <ADC>
+         <ADCEPI Notes="" Switch="$1'on','off'" tMiddle="VCtl.TE"/>
+      </ADC>
+      <Ext>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="CV1/3"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="5" Notes="calculate remaining scan time" Switch="$1'on','off'" tStart="0"/>
+         <ExtBit DupSpacing="5e-3" Duplicates="31" Ext="5" Notes="" Switch="$2'on','off'" tStart="10e-3"/>
+         <ExtBit DupSpacing="5e-4" Duplicates="150" Ext="8" Notes="" Switch="$2'on','off'" tStart="5e-3"/>
+         <ExtBit DupSpacing="10e-4" Duplicates="100" Ext="8" Notes="" Switch="$1'on','off'" tStart="5e-3"/>
+      </Ext>
+   </Pulses>
+</MRiLabSeq>

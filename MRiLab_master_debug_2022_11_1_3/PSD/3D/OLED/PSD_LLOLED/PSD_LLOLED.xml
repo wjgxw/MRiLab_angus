@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabSeq Name="PSD_LLOLED" Notes="3D hybrid EPI gradient echo sequence">
+   <CVs CV1="75e-3" CV10="0" CV11="0" CV12="0" CV13="0" CV14="0" CV2="80e-3" CV3="5e-3" CV4="140e-3" CV5="5e-3" CV6="VCtl.delta_TE" CV7="0" CV8="0" CV9="0" DEEP_learning="0" LLOLED_Slice="3" slice="500"/>
+   <Specials EPI="^1"/>
+   <Pulses Freq="1" Notes="regular TR section" Switch="$1'on','off'" TREnd="Inf" TRStart="1" tE="VCtl.TR" tS="0">
+      <rf>
+         <rfSinc AnchorTE="$1'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="1" Duplicates="1" FA="180" Notes="excitation rf IR" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+1e-3" tStart="CV3-0.1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="CV4" Duplicates="VCtl.LLOLED_Slice" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+CV5+0.1e-3" tStart="CV3+CV5-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$1'Non','Hamming','Hanning'" CoilID="1" DupSpacing="CV4" Duplicates="VCtl.LLOLED_Slice" FA="VCtl.FlipAng" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+CV5+CV6+0.1e-3" tStart="CV3+CV5+CV6-1e-3"/>
+         <rfRect AnchorTE="$2'on','off'" CoilID="1" DupSpacing="CV4" Duplicates="1" FA="180" Notes="hard pulse" Switch="$2'on','off'" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="CV3+1e-3+CV4" tStart="CV3-0.1e-3+CV4"/>
+      </rf>
+      <GzSS>
+         <GzCartesian DupSpacing="0" Duplicates="1" Gz1Sign="0" Gz2Sign="1" Notes="cartesian phase" Switch="$1'on','off'" t1End="CV2" t1Start="CV1" t2End="VCtl.TE+CV2" t2Start="VCtl.TE+CV1" tRamp="100e-6"/>
+      </GzSS>
+      <GyPE>
+         <GyAreaTrapezoid Area="500" DupSpacing="CV4" Duplicates="5" Notes="" Switch="$2'on','off'" tEnd="CV3+5e-3+CV4+2e-3" tStart="CV3+5e-3+CV4"/>
+         <GyLLOLED Gy1Sign="-1" Gy2Sign="1" Notes="" Switch="$2'on','off'" t1Start="" t2Middle="CV3+CV5+CV6/2+CV4/2"/>
+         <GyAreaTrapezoid Area="1000" DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tEnd="192e-3" tStart="190e-3"/>
+         <GyEPItrain DupSpacing="CV4" Duplicates="VCtl.LLOLED_Slice" Gy1Sign="-1" Gy2Sign="1" Notes="" Switch="$1'on','off'" t1Start="CV3+CV5+CV6+10e-3" t2Middle="CV3+CV5+CV6/2+CV4/2"/>
+      </GyPE>
+      <GxR>
+         <GxAreaTrapezoid Area="500" DupSpacing="CV4" Duplicates="5" Notes="" Switch="$2'on','off'" tEnd="CV3+5e-3+CV4+2e-3" tStart="CV3+5e-3+CV4"/>
+         <GxEPItrain DupSpacing="CV4" Duplicates="VCtl.LLOLED_Slice" Gx1Sign="-1" Gx2Sign="1" Notes="" Switch="$1'on','off'" t1Start="CV3+CV5+CV6+10e-3" t2Middle="CV3+CV5+CV6/2+CV4/2"/>
+         <GxLLOLED Gx1Sign="-1" Gx2Sign="1" Notes="" Switch="$2'on','off'" t1Start="40e-3" t2Middle="CV3+CV5+CV6/2+CV4/2+CV4"/>
+      </GxR>
+      <ADC>
+         <ADCCartesian DupSpacing="0" Duplicates="1" Notes="" Switch="$2'on','off'" tMiddle="100e-3"/>
+         <ADCEPItrain DupSpacing="CV4" Duplicates="VCtl.LLOLED_Slice" Notes="" Switch="$1'on','off'" tMiddle="CV3+CV5+CV6/2+CV4/2"/>
+         <ADCEPI Notes="" Switch="$2'on','off'" tMiddle="CV3+CV5+CV6/2+CV4/2"/>
+         <ADCEPI Notes="" Switch="$2'on','off'" tMiddle="CV3+CV5+CV6/2+CV4/2+CV4"/>
+      </ADC>
+      <Ext>
+         <ExtBit DupSpacing="CV4" Duplicates="VCtl.LLOLED_Slice" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="1e-3"/>
+         <ExtBit DupSpacing="CV4" Duplicates="VCtl.LLOLED_Slice-1" Ext="5" Notes="calculate remaining scan time" Switch="$2'on','off'" tStart="CV3+CV5+10e-3"/>
+         <ExtBit DupSpacing="CV4" Duplicates="VCtl.LLOLED_Slice-1" Ext="6" Notes="ideal spoiler" Switch="$1'on','off'" tStart="0.001e-3+CV4"/>
+         <ExtBit DupSpacing="5e-3" Duplicates="80" Ext="5" Notes="" Switch="$1'on','off'" tStart="50e-3"/>
+      </Ext>
+   </Pulses>
+</MRiLabSeq>

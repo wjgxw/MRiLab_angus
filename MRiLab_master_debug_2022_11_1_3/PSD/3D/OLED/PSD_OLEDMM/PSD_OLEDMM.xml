@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MRiLabSeq Name="PSD_OLEDMM" Notes="3D hybrid EPI gradient echo sequence">
+   <CVs CV1="75e-3" CV10="0" CV11="0" CV2="80e-3" CV3="0" CV4="0" CV5="0" CV6="0" CV7="0" CV8="0" CV9="0"  T1D="600e-3" T2D="800e-3" oledMM="1" />
+   <Specials  DEEP="^1" EPI="^1"/>
+   <Pulses Freq="1" Notes="regular TR section" Switch="$1'on','off'" TREnd="Inf" TRStart="1" tE="VCtl.TR" tS="0">
+      <rf>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="45" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="1e-3" tStart="0"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="45" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="VCtl.delta_TE*1+0.5e-3" tStart="VCtl.delta_TE*1-0.5e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="180" Notes="refocuse" Switch="$1'on','off'" TBP="6" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="VCtl.refocus+1e-3" tStart="VCtl.refocus-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="90" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="VCtl.T1D+0.5e-3" tStart="VCtl.T1D-0.5e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="180" Notes="refocuse" Switch="$1'on','off'" TBP="6" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="VCtl.T1D+60e-3+1e-3" tStart="VCtl.T1D+60e-3-1e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="90" Notes="excitation rf" Switch="$1'on','off'" TBP="4" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="VCtl.T2D+0.5e-3" tStart="VCtl.T2D-0.5e-3"/>
+         <rfSinc AnchorTE="$2'on','off'" Apod="$2'Non','Hamming','Hanning'" CoilID="1" DupSpacing="0" Duplicates="1" FA="180" Notes="refocuse" Switch="$1'on','off'" TBP="6" dt="20e-6" rfFreq="0" rfPhase="0" tEnd="VCtl.T2D+60e-3+1e-3" tStart="VCtl.T2D+60e-3-1e-3"/>
+      </rf>
+      <GzSS>
+         <GzAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher_L" Switch="$1'on','off'" tEnd="70e-3" tStart="69e-3"/>
+         <GzAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher_L" Switch="$1'on','off'" tEnd="79e-3" tStart="78e-3"/>
+         <GzAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher_L" Switch="$1'on','off'" tEnd="655e-3" tStart="652e-3"/>
+         <GzAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher_L" Switch="$1'on','off'" tEnd="670e-3" tStart="667e-3"/>
+      </GzSS>
+      <GyPE>
+         <GyOLEDMM Gy1Sign="-1" Gy2Sign="1" Notes="EPI phase encoding" Switch="$1'on','off'" t1Start="" t2Middle="VCtl.TE"/>
+         <GyAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher" Switch="$1'on','off'" tEnd="70e-3" tStart="69e-3"/>
+         <GyAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher" Switch="$1'on','off'" tEnd="79e-3" tStart="78e-3"/>
+         <GyAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher" Switch="$1'on','off'" tEnd="655e-3" tStart="652e-3"/>
+         <GyAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher" Switch="$1'on','off'" tEnd="670e-3" tStart="667e-3"/>
+      </GyPE>
+      <GxR>
+         <GxOLEDMM Gx1Sign="-1" Gx2Sign="1" Notes="EPI frequency encoding" Switch="$1'on','off'" t1Start="" t2Middle="VCtl.TE"/>
+         <GxAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher" Switch="$1'on','off'" tEnd="70e-3" tStart="69e-3"/>
+         <GxAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher" Switch="$1'on','off'" tEnd="79e-3" tStart="78e-3"/>
+         <GxAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher" Switch="$1'on','off'" tEnd="655e-3" tStart="652e-3"/>
+         <GxAreaTrapezoid Area="CV8" DupSpacing="0" Duplicates="1" Notes="crusher" Switch="$1'on','off'" tEnd="670e-3" tStart="667e-3"/>
+      </GxR>
+      <ADC>
+         <ADCEPIM Notes="EPI readout" Switch="$1'on','off'" tMiddle="VCtl.TE"/>
+      </ADC>
+      <Ext>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="CV1/3"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="5" Notes="calculate remaining scan time" Switch="$1'on','off'" tStart="0"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="6" Notes="IdealSpoiler" Switch="$1'on','off'" tStart="VCtl.T1D-10e-3"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="VCtl.T1D-8e-3"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="6" Notes="IdealSpoiler" Switch="$2'on','off'" tStart="VCtl.T2D-10e-3"/>
+         <ExtBit DupSpacing="0" Duplicates="1" Ext="1" Notes="reset K space location" Switch="$1'on','off'" tStart="VCtl.T2D-8e-3"/>
+      </Ext>
+   </Pulses>
+</MRiLabSeq>

@@ -1,0 +1,8 @@
+======SPEN Sequence=========
+Usage :PSD_OLED4_SPEN180
+Version : 1.0
+Author : Angus
+Time : 02/25/2019
+Affiliation : Xiamen University
+wjtcw@hotmail.com
+======================================

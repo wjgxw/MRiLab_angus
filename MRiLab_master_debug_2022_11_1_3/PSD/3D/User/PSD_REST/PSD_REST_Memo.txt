@@ -1,0 +1,7 @@
+======Spin echo Sequence======
+Usage : T2 star effect
+Version : 1.0
+Author : Angus, wjtcw@hotmail.com
+Time : 04/10/2018
+Affiliation : University of Xiamen
+============================

@@ -1,0 +1,8 @@
+======oled Sequence=========
+Usage : PSD_OLED_diffusion
+Version : 1.0
+Author : Angus
+Time : 19/5/2019
+Affiliation : University of Xiamen
+wjtcw@hotmail.com
+======================================
